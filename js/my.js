@@ -88,13 +88,8 @@ document.addEventListener("DOMContentLoaded", () => {
             let id=e.target.dataset.todoid;
             parent.parentElement.remove();
             let data=getTodos();
-            data.forEach(item=>{
-                console.log(item.id);
-                if(id==item.id){
-                    data=data.filter(val=>{
-                        return !val.id==id;
-                    })
-                }
+            data=data.filter(value=>{
+                return value.id!=id;
             })
             localStorage.setItem("data", JSON.stringify(data));
         })
